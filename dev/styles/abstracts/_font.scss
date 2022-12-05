@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Monteserrat Regular';
+    src: url("../../fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url("../../fonts/montserrat/Montserrat-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'Montserrat Medium';
+    src: url("../../fonts/montserrat/Montserrat-Medium.ttf");
+}
+
+
+$monty-regular: "Montserrat Regular";
+$monty-medium: "Montserrat Medium";
+$monty-bold: "Montserrat Bold";

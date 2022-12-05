@@ -1,0 +1,23 @@
+@forward "abstracts";
+@forward "base";
+@forward "layout";
+@forward "components";
+@forward "pages";
+@forward "themes";
+@forward "utilities";
+@forward "vendors";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    background: none;
+    border: 7px solid white;
+}
