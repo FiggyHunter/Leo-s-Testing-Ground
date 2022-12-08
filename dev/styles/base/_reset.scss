@@ -1,0 +1,32 @@
+
+html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+img {
+    max-width: 100%;
+}
+
+button {
+    background: none;
+    border: 7px solid white;
+}
+
+a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
