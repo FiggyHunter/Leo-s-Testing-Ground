@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+
+.right__prompt {
+    position: relative;
+    font-size: clamp(.525rem, 2vw + .1rem, 1rem);
+    text-align: center;
+    height: clamp(3.125rem, 2vw + 2.75rem, 6.25rem);
+    width: clamp(11.125rem, 20vw + 2.75rem, 16.25rem);
+    background-color: map-get($color-map, "red");
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: $monty-black;
+
+    h5 {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+&::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 40px solid map-get($color-map, "red");
+    top: -30px;
+    right: 15px;
+  }
+
+  .prompt__close {
+    color: white;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: .5rem;
+  }
+  
+}
