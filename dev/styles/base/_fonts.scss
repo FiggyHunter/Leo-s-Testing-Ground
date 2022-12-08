@@ -1,0 +1,53 @@
+@use "../abstracts/font" as *;
+
+.left__item-two {
+    ::before {
+        @media (max-width: 280px) {
+            display: none;
+            display: block;
+            position: absolute;
+            top: .8rem;
+            left: 1.3rem;
+            content: "Leo TG";
+            font-size: 1rem;
+            color: white;
+            font-family: $monty-regular;
+        }
+    }
+}
+
+.left__text {
+
+    text-transform: uppercase;
+    font-family: $monty-regular;
+    font-size: clamp(.3rem, 2vw + 0.4rem, 2rem);
+
+    @media (max-width: 280px) {
+        display: none;
+    }
+
+    @media (max-width: 340px) {
+        font-size: .6rem;
+
+        .bold {
+            padding: 0rem .2rem !important;
+        }
+    }
+
+    .bold {
+        font-family: $monty-bold;
+        padding: 0rem .5rem;
+    }
+}
+
+.right__link {
+    font-size: clamp(.8rem, 2vw + 0.4rem, 2rem);
+    font-family: $monty-regular;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-left: clamp(0.375rem, 5vw - 1.25rem, 1rem);
+    padding-top: .3rem;
+    @media (max-width: 280px) {
+        display: none;
+    }
+}
