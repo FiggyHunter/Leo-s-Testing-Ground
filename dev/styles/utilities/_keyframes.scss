@@ -20,3 +20,25 @@
         transform:rotate(360deg);
     }
 }
+
+@-webkit-keyframes width {
+    0% {
+      width: 100%;
+    }
+  
+    50% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  @keyframes pulse {
+    0% {
+      width: 100%;
+    }
+  
+    100% {
+      width: 0%;
+    }
+  }

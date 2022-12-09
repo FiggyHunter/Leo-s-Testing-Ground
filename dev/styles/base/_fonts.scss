@@ -6,8 +6,8 @@
             display: none;
             display: block;
             position: absolute;
-            top: .8rem;
-            left: 1.3rem;
+            top: 1.1rem;
+            left: 2.2rem;
             content: "Leo TG";
             font-size: 1rem;
             color: white;
@@ -26,7 +26,7 @@
         display: none;
     }
 
-    @media (max-width: 340px) {
+    @media (max-width: 380px) {
         font-size: .6rem;
 
         .bold {
@@ -50,4 +50,36 @@
     @media (max-width: 280px) {
         display: none;
     }
+}
+
+.hero__text {
+    color: white;
+    font-family: $monty-regular;
+    font-size: clamp(2.213rem, 3vw + 1.8rem, 5.375rem);
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    letter-spacing: .15rem;
+    line-height: 1.2;
+}
+
+.hero__pgr {
+    width: 75%;
+    margin: 0 auto;
+    color: white;
+    font-family: $monty-italic;
+    text-align: center;
+    font-size: clamp(0.875rem, 2vw + 0.25rem, 1.688rem);
+
+    &--bottom {
+        font-size: clamp(0.575rem, 2vw + 0.1rem, 1.1rem);
+        text-align: end;
+        font-family: $monty-thin;
+    }
+}
+
+.button__hero {
+    text-transform: uppercase;
+    font-family: $monty-black;
+    font-size: clamp(0.875rem, 2vw + 0.25rem, 2rem);
 }

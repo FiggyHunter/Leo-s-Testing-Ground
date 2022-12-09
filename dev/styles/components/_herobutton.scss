@@ -1,0 +1,14 @@
+ @use "../abstracts/" as *;
+ 
+ .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .button__hero {
+        text-align: center;
+        width: clamp(70%, 4vw + 1rem, 20vw);
+        border: 3px solid map-get($color-map, "red" );
+        padding: 20px;
+        border-radius: 50px;
+    }
+}

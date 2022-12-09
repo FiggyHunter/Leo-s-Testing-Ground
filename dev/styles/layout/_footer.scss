@@ -1,0 +1,6 @@
+@use "../abstracts/" as *;
+
+.foo {
+    background-color: map-get($color-map , "red" );
+    padding: 1rem 0;
+}

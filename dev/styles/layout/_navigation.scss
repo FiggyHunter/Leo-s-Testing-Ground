@@ -1,10 +1,15 @@
 nav {
     padding-top: .7rem;
     display: flex;
+    z-index: 30;
     
     .left {
         display: flex;
         align-items: center;
+
+        @media (min-width: 1000px) {
+            padding-left: 1.5rem;
+        }
 
         width: 70%;
         &__container {

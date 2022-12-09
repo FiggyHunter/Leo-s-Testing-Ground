@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leo's Testing ground</title>
+  <title>Loading</title>
 </head>
 
 <body>
 
-  <!-- <div class="loader-container">
+ <div class="loader-container">
     <div class="loader"></div>
     <div class="text">Loading...</div>
     <h1 class="description">Proudly <span class="description--red">self-hosted</span> on linux using caddy.</h1>
   </div>
-
+  <!--
   <article class="options">
     <div class="first-row-container">    
       <h1 class="options__headline">Welcome to leotg.com</h1>
@@ -39,17 +39,46 @@
     <h1 class="options__headline options__headline--smaller">Choose your viewing experience.</h1>
   </article> -->
 
-  <main class="simple">
+  <div class="content">
     <nav>
-      <div class="left">
+      <ul class="left">
         <div class="left__container">
-          <img class="left__image" src="" alt="">
-          <h2 class="left__text"><span class="bold">Leo's</span>Testing Ground</h2>
+          <li class="left__item-one"><img class="left__image" src="images/circle.svg" alt=""></li>
+          <li class="left__item-two"><a href="" class="left__link-two">
+            <h2 class="left__text"><span class="bold">Leo's</span>Testing Ground</h2>
+          </a>
+          </li>
         </div>
-      </div>
-      <div class="right"></div>
+      </ul>
+      <ul class="right">
+        <li class="right__item-one">
+          <img src="images/info_icon.svg" alt="" class="right__icon">
+          <a href="about.html" class="right__link">About</a>
+        </li>
+        <li class="right__item-two">
+          <a href="" class="right__option"><img class="setting-large" src="images/gear.svg" alt="" srcset=""><img class="setting-small" src="images/gear.svg" alt="" srcset=""></a>
+          <div class="right__prompt"><h5>You can change your viewing style here.</h5><div class="prompt__close">X</div></div>
+        </li>
+      </ul>
     </nav>
-  </main>
+    <main class="simple">
+      <section class="hero-container">
+        <h2 class="hero__text">Welcome to the place <br> where ideas come to life.</h2>
+        <div class="pgr__container">
+          <p class="hero__pgr">We shape our buildings; thereafter they shape us.</p>
+          <p class="hero__pgr hero__pgr--bottom">- Winston S Churchill</p>
+        </div>
+              <section class="button-container">
+        <a class="button__hero" href="#">Explore Projects</a>
+      </section>
+      </section>
+
+      <div class="heartbeat"> 
+        <div class="heartbeat__container"> <img class="heartbeat__image" src="./images/heartpulse.svg" alt="" srcset=""></div>
+      </div>
+    </main>
+    <footer class="foo"></footer>
+  </div>
 
   <script type="module" src="./scripts/main.js"></script>
 

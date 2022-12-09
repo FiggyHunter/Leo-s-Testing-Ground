@@ -18,8 +18,19 @@
     src: url("../../fonts/montserrat/Montserrat-Black.ttf");
 }
 
+@font-face {
+    font-family: "Montserrat Italic";
+    src: url("../../fonts/montserrat/Montserrat-Italic.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat Light";
+    src: url("../../fonts/montserrat/Montserrat-LightItalic.ttf");
+}
 
 $monty-regular: "Monteserrat Regular";
 $monty-medium: "Montserrat Medium";
 $monty-bold: "Montserrat Bold";
 $monty-black: "Montserrat Black";
+$monty-italic: "Montserrat Italic";
+$monty-thin :"Montserrat Light";

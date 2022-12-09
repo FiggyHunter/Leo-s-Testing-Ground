@@ -1,5 +1,79 @@
+@use "../abstracts/" as *;
+
 .content {
     display: grid;
     grid-template-rows: 5fr 80fr 3fr;
     height: 100vh;
+}
+
+
+.hero__text {
+    @media (min-width: 600px) {
+        align-self: end;
+    }
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 2fr 2fr;
+    justify-content: space-between;
+    margin-top: clamp(2.5rem, 2vw + .5rem, 5rem);
+    @media (min-width: 600px) {
+        gap: 1rem;
+    }
+}
+
+.hero__pgr {
+    width: clamp(60%, 50% + 7vw, 75%);
+} 
+
+.pgr__container {
+    align-self: end;
+    @media (min-width: 600px) {
+        align-self: start;
+    }
+}
+
+.button-container {
+    place-self: center;
+    padding-bottom: clamp(1rem, 3vw + .5rem, 10rem);
+}
+
+.heartbeat {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 45%;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+
+.heartbeat__image {
+    overflow: hidden;
+}
+
+.heartbeat__container {
+    display: inline-block;
+    position: relative;
+    transform: scale(2);
+    width: 100vw;
+    display: grid;
+    @media (min-width: 1000px) {
+        transform: unset;
+    }
+}
+
+.heartbeat__container::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 0%;
+    background-color: map-get($color-map, "blue" );
+    height: 100%;
+    animation: pulse 7s infinite;
+    justify-self: right;
 }
