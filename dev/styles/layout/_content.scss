@@ -54,12 +54,13 @@
 
 .heartbeat__image {
     overflow: hidden;
+    min-width: 100%;
 }
 
 .heartbeat__container {
     display: inline-block;
     position: relative;
-    transform: scale(2);
+    transform: scale(2.5);
     width: 100vw;
     display: grid;
     @media (min-width: 1000px) {
