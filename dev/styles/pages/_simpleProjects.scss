@@ -1,0 +1,201 @@
+@use "../abstracts/" as *;
+
+:root {
+    --borderWidth: 3px;
+}
+
+body {
+    background-color: map-get($color-map, "blue");
+}
+
+.simple-container {
+
+    display: grid;
+    grid-template-rows: 1.2fr 20fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    position: relative;
+
+    @media (min-width: 1300px) {
+        grid-template-rows: 20fr 1.2fr;
+    }
+}
+
+
+.project__text {
+    font-family: $monty-bold-italic;
+    color: white;
+    text-align: center;
+    display: none;
+    @media (min-width: 1300px) {
+        display: block;
+    }
+    align-self: center;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 47.5%;
+        height: 5%;
+        width: 41%;
+        background-color: white;
+    }
+
+    &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 47.5%;
+        right: 0%;
+        height: 5%;
+        width: 41%;
+        background-color: white;
+    }
+}
+
+.projects {
+    display: grid;
+    position: relative;
+    height: 100%;
+    padding: 5% 0;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    align-self: center;
+    order: 1;
+    &__project {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid white;
+        border-radius: 3.5vmax;
+        color: white;
+        font-family: "Montserrat ExtraBold Italic";
+        width: 85%;
+        margin: 0 auto;
+
+        h5 {
+            font-size: clamp(1rem, 1.2vw + .6rem, 4.125rem);
+        }
+    
+        &:hover,&:focus   {
+            background-color: red;
+            cursor: pointer;
+        }
+    
+        @media (min-width: 600px) {
+            justify-content: left;
+            align-items: end;
+            h5 {
+                margin: .5rem .7rem;
+            }
+        }
+
+        @media (min-width: 1300px) {
+            border-radius: 1vmax;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__project--new {
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(10,15,203,1) 0%, rgba(228,0,68,1) 95%);
+        background-size: 300% 300%;
+        animation: animatedgradient 7s ease alternate infinite;
+
+        @keyframes animatedgradient {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 250%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+        .project__overlay {
+            display: flex;
+            justify-content: center;
+            background-color: map-get($color-map, "blue" );
+            width: 96%;
+            height: 90%;
+            border-radius: 3.5vmax;
+            @media (min-width: 700px) {
+                width: 97.5%;
+            }
+            @media (min-width: 1300px) {
+                border-radius: 1vmax;
+                height: 95%;
+            }
+        }
+        &__image {width: clamp(2.188rem, 3vw + 2rem, 6.25rem);}
+    }
+   
+    @media (min-width: 1300px) {
+        grid-template-rows: unset;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "first . second"
+        "text text text"
+        "third addproject fourth";
+
+        #first {grid-area: first;}
+        #second {grid-area: second;}
+        #third {grid-area: third;}
+        #fourth {grid-area: fourth;}
+        #fifth {grid-area: addproject;}
+        #text {grid-area: text;}
+    }   
+}
+
+
+.projects-foo {
+    background-color: map-get($color-map, "red");
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat Bold Italic";
+    text-transform: uppercase;
+    order: 0;
+    @media (min-width: 1300px) {
+        order: 1;
+    }
+}
+
+.foo__home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.foo__home>img {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.foo__home>h2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: clamp(1.125rem, 1vw + 1rem, 2.5rem);
+}
+
+.description {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    z-index: 2;
+    background-color: map-get($color-map, "blue");
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr 2fr 1.5fr;
+    grid-template-columns: 1fr ;
+}

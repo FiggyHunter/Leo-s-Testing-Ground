@@ -47,7 +47,8 @@ html {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 10fr 1fr;
-    position: relative;
+    position: absolute;
+    z-index: 100;
 
     &__headline {
         text-align: center;
