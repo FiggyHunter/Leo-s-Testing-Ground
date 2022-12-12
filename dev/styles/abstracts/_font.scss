@@ -28,9 +28,21 @@
     src: url("../../fonts/montserrat/Montserrat-LightItalic.ttf");
 }
 
+@font-face {
+    font-family: "Montserrat ExtraBold Italic" ;
+    src: url(../../fonts/montserrat/Montserrat-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat Bold Italic";
+    src: url("../../fonts/montserrat/Montserrat-BoldItalic.ttf");
+}
+
 $monty-regular: "Monteserrat Regular";
 $monty-medium: "Montserrat Medium";
 $monty-bold: "Montserrat Bold";
 $monty-black: "Montserrat Black";
 $monty-italic: "Montserrat Italic";
 $monty-thin :"Montserrat Light";
+$monty-extra-italic: "Montserrat ExtraBold Italic";
+$monty-bold-italic: "Montserrat Bold Italic";
