@@ -1,2 +1,2 @@
-import '../styles/index.scss';
 import './loader.js';
+import '../styles/index.scss';
