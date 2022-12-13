@@ -197,5 +197,179 @@ body {
     background-color: map-get($color-map, "blue");
     display: grid;
     grid-template-rows: 1fr 5fr 1fr 2fr 1.5fr;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "title"
+    "image"
+    "logos"
+    "description"
+    "cta";
+    gap: .5rem;
+
+    &__title {
+        color: map-get($color-map, "white");
+        font-family: $monty-bold-italic;
+        font-size: clamp(1.875rem, 4vw + 1rem, 5rem);
+        margin-left: 1rem;
+    }
+
+    &__nav {
+        margin-top: .5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-area: title;
+        padding: 0 clamp(2%, 2% + 1vw, 4%);
+    }
+
+    &__close {
+        border: none;
+
+        img {
+            width: clamp(2.5rem, 5vw + 1.75rem, 6.875rem);
+        }
+    }
+
+    &__image-container {
+        grid-area: image;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+
+    &__logos {
+        grid-area: logos;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        img {
+            height: clamp(2.313rem, 1vw + 2.25rem, 4.188rem);;
+            object-fit: cover;
+        }
+
+        .logos__info {
+            color: white;
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+            @media (max-width: 1300px) {
+                display: none;
+            }
+        }
+    }
+
+    &__text-container {
+        align-self: center;
+        grid-area: description;
+        p {
+            color: white;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: clamp(1rem, 1vw + 1rem, 3.125rem);
+            font-family: $monty-regular;
+
+            @media (min-width: 1300px) {
+                text-align: left;
+            }
+        }
+        @media (min-width: 1300px) {
+            align-self: start;
+        }
+    }
+
+    &__cta {
+        grid-area: cta;
+        display: flex;
+        justify-content: space-around;
+        .cta__btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(0.5rem, 1vw - 0.2rem, 1rem);
+            img {
+                padding-left: clamp(0.625rem, 2vw + 1rem, 1.875rem);
+                width: 25%;
+            }
+            h5 {
+                width: 100%;
+                color: white;
+                font-size: clamp(1.25rem, 2vw + 1rem, 3.125rem);
+                @media (max-width: 300px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+        @media (min-width: 1300px) {
+            align-self: end;
+        }
+        .play {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 70%;
+               
+                    -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+                            animation: heartbeat 1.5s ease-in-out infinite both;
+                
+            }
+        }
+    }
+    @media (min-width: 1300px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 3fr 1fr 2fr 1fr;
+        grid-template-areas: 
+        "title title"
+        "image description"
+        "image logos"
+        "image cta"
+        ". .";
+    }
 }
+
+@keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+
+  
