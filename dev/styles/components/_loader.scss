@@ -28,9 +28,10 @@
         margin-top: 3rem;
         margin-bottom: 3rem;
         align-self: flex-end;
+        z-index: 400;
       }
       position: absolute;
-      z-index: 50;
+      z-index: 400;
       transition: opacity var(--opacity-length);
   }
   
@@ -41,11 +42,13 @@
       font-size: 2rem;
       padding-top: 2rem;
       padding-left: .5rem;
+      z-index: 400;
   }
 
-  .description {
+  .loader__description {
     position: absolute;
     bottom: 0px;
+    display: block;
 
     font-family: f.$monty-bold;
     font-size: 1rem;
@@ -63,6 +66,7 @@
       text-align: center;
       padding-bottom: 1rem;
     }
+    z-index: 400;
   }
   
   body {

@@ -1,0 +1,195 @@
+@use "../abstracts/" as *;
+@use "../base/reset" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    background-color: #110635;
+    overflow-y: hidden;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr  1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "four four three six"
+                         "five two seven seven"
+                         "one eight eight eight"   ;
+    border: 5px solid red;
+    border-left: none;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    height: 15px;
+    width: 75.25%;
+    border-top: 5.5px solid #110635;
+    transition: border-color 1s;
+}
+
+
+.one {
+    position: relative;
+    z-index: 2;
+    animation: widthfun 3s infinite;
+    transition: all 1s;
+}
+
+.one::before {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 102%;
+    width: 110%;
+    border-right: 5px solid red;
+}
+
+.one::after {
+    display: block;
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+    height: 100%;
+    width: 98.5%;
+    border-bottom: 5px solid #110635;
+    transition: border-color 1s;
+}
+
+.two {
+    grid-area: two;
+    width: 0%;
+    position: relative;
+    animation: widthfun 3s infinite;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    .about-person {
+        z-index: 5;
+        position: absolute;
+        left: clamp(-18px, -10px - 3vw, -20px);
+        margin-bottom: 1rem;
+        font-family: $monty-bold;
+        font-size: clamp(1.875rem, 1.5vw + 1.2rem, 4.125rem);
+        display: block;
+        @media (min-width: 1366px) {
+            position: unset;
+            left: unset;
+        }
+    }
+}
+
+
+
+@keyframes widthfun {
+    0% {
+        transform: rotateX(180deg);
+        width: 100%;
+    }
+
+    50% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.two::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 110%;
+    border-right: 5px solid red;
+}
+
+.two::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    bottom: 0;
+    height: 100%;
+    width: 101%;
+    border-bottom: 5px solid red;
+  }
+
+  
+.three {
+    position: relative;
+    grid-area: three;
+    animation: widthfun 3s infinite;
+    transition: background 4s;
+}
+
+.three::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -5px;
+    height: 101.5%;
+    width: 110%;
+    border-right: 5px solid red;
+
+}
+
+.three::after {
+    content: "";
+    position: absolute;
+    left: -4.9px;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom: 5px solid red;
+}
+
+.four {
+    grid-area: four;
+    transition: background 4.3s;
+}
+
+.five {
+    grid-area: five;
+    transition: background-color 5s;
+}
+
+.six {
+    grid-area: six;
+}
+
+.seven {
+    grid-area: seven;
+    animation: widthfun 3s infinite;
+
+    .about-site {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-family: $monty-bold;
+        font-size: clamp(1.875rem, 1.5vw + 1.2rem, 4.125rem);
+    }
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.item {
+    transition: all 2s;
+}
+
+.first {
+    z-index: 10;
+}

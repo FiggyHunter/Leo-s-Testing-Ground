@@ -11,5 +11,6 @@ function hideLoaderWithDelay(seconds) {
             loaderContainer.remove();
         },3000)
     }
-
+    
+hideLoaderWithDelay(3);
   
