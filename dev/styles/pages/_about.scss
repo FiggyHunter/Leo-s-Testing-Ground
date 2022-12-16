@@ -13,9 +13,21 @@
     --itemRevealColor: #c60033;
 }
 
+.about__home-nav {
+    position: absolute;
+    height: 7%;
+    display: flex;
+    top: .6rem;
+    left: .3rem;
+    z-index: 100;
+    align-items: center;
+}
+
 .about-person-ctr {
     visibility: hidden;
-    opacity: 1;
+    display: grid;
+    grid-template-rows: 0.5fr 8fr;
+    opacity: 0;
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -54,7 +66,7 @@
     visibility: hidden;
     display: grid;
     grid-template-rows: 0.5fr 8fr;
-    opacity: 1;
+    opacity: 0;
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -119,6 +131,9 @@
     transition: border-color 1s;
 }
 
+.main-text {
+    transition: opacity 2s;
+}
 
 .one {
     position: relative;
