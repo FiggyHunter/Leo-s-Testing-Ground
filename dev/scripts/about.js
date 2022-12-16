@@ -9,25 +9,31 @@ const aboutPersonContainer =
   document.getElementsByClassName("about-person-ctr")[0];
 const closeAboutPersonContainer =
   document.getElementsByClassName("nav__close-ctr")[0];
+const aboutSiteContainer = document.getElementsByClassName("about-site-ctr")[0];
+const closeAboutSiteContainer =
+  document.getElementsByClassName("nav__close-two")[0];
 
 const items = document.getElementsByClassName("item");
 let itemsArr = Array.from(items);
 let textArr = Array.from(document.getElementsByClassName("main-text"));
 
-function hideText (delay) {
-  setTimeout(() => {
-      textArr.forEach(text => {
-        text.style.opacity = 0;
-        text.style.visibility = "hidden";
-      });
-  }, delay);
+function hideText(delay) {
+  textArr.forEach((text) => {
+    setTimeout(() => {
+      text.style.opacity = 0;
+    }, delay-1000);
+
+    setTimeout(() => {
+      text.style.visibility = "hidden";
+    }, delay);
+  });
 }
 
-function showText () {
-  textArr.forEach(text => {
-    if(text.style.visibility == "visible")
-      return;
-      text.style.visibility = "visible";
+function showText() {
+  textArr.forEach((text) => {
+    if (text.style.visibility == "visible") return;
+    text.style.visibility = "visible";
+    text.style.opacity = 1;
   });
 }
 
@@ -46,8 +52,11 @@ aboutMe.addEventListener("click", () => {
   setTimeout(() => {
     console.log(aboutPersonContainer);
     aboutPersonContainer.style.visibility = "visible";
-    aboutPersonContainer.style.opacity = "1";
   }, 2500);
+
+  setTimeout(() => {
+    aboutPersonContainer.style.opacity = "1";
+  }, 3000);
 
   itemsArr.forEach((item) => {
     item.getAnimations().forEach((animation) => {
@@ -66,17 +75,39 @@ aboutSite.addEventListener("click", () => {
   });
 
   hideText(2000);
+
+  setTimeout(() => {
+    aboutSiteContainer.style.visibility = "visible";
+    aboutSiteContainer.style.opacity = 1;
+  }, 2500);
 });
 
 closeAboutPersonContainer.addEventListener("click", () => {
-  aboutPersonContainer.style.opacity = "0";
+  
   setTimeout(() => {
-    aboutPersonContainer.style.visibility = "hidden";
+    aboutPersonContainer.style.opacity = "0";
     document.documentElement.style.setProperty(
       "--itemRevealColor",
       "transparent"
     );
   }, 10);
+
+  setTimeout(() => {
+    aboutPersonContainer.style.visibility = "hidden";
+  }, 1500);
+});
+
+closeAboutSiteContainer.addEventListener("click", () => {
+  aboutSiteContainer.style.opacity = 0;
+  
+  setTimeout(() => {
+    document.documentElement.style.setProperty("--revealBorder", "red");
+  }, 1000);
+
+  setTimeout(() => {
+    aboutSiteContainer.style.visibility = "hidden";
+    showText();
+  }, 2000);
 });
 
 // for (let i = 0; i < firstpart.length; i++) {
