@@ -12,7 +12,8 @@
     color: white;
     font-family: $monty-black;
 
-    h5 {
+    h3 {
+      font-size: clamp(.4rem, 1vw + .2rem, 1rem);
       width: 90%;
       margin: 0 auto;
     }
@@ -27,7 +28,7 @@
     border-right: 5px solid transparent;
     border-bottom: 40px solid map-get($color-map, "red");
     top: -30px;
-    right: 15px;
+    right: 45px;
   }
 
   .prompt__close {
