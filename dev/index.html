@@ -9,13 +9,13 @@
 
 <body>
 
- <div class="loader-container">
+ <!-- <div class="loader-container">
     <div class="loader"></div>
     <div class="text">Loading...</div>
     <h1 class="loader__description">Proudly <span class="loader__description--red">self-hosted</span> on linux using caddy.</h1>
-  </div>
+  </div> -->
   
-  <article class="options">
+  <!-- <article class="options">
     <div class="first-row-container">    
       <h1 class="options__headline">Welcome to leotg.com</h1>
       <button class="close-btn">X</button>
@@ -23,41 +23,47 @@
     <section class="options__container">
       <button class="options__item options__item-one">
         <div class="options__item-one__image-container">
-          <img src="images/hand.svg" alt="image indicating simplicity" class="options__item-one__image">
+          <img src="images/hand.svg" alt="image indicating simplicity" width="100px" height="100px" class="options__item-one__image">
         </div>
         <h1 class="item-one__headline">Simple</h1>
         <p class="item-one__pgr">Standard scrolling, less animations, faster way of browsing.</p>
       </button>
       <button class="options__item options__item-two">
         <div class="options__item-two__image-container">
-          <img src="images/cube.svg" alt="image indicating complexity" class="options__item-two__image">
+          <img src="images/cube.svg" alt="image indicating complexity" width="100px" height="100px" class="options__item-two__image">
         </div>
         <h1 class="item-two__headline">Advanced</h1>
         <p class="item-two__pgr">Horizontal scrolling, more animations, slower way of browsing.</p>
       </button>
     </section>
     <h1 class="options__headline options__headline--smaller">Choose your viewing experience.</h1>
-  </article>
+  </article> -->
 
-  <div class="content">
+  <div class="sc-content c-content">
+
+    <div class="arrow-container">
+      <img class="arrow-container__arrows" src="./images/arrows.svg" alt="" srcset="">
+      <img class="arrow-container__mouse" src="./images/mouse.svg" alt="" srcset="">
+    </div>
+
     <nav>
       <ul class="left">
-        <div class="left__container">
-          <li class="left__item-one"><img class="left__image" src="images/circle.svg" alt=""></li>
+        <ul class="left__container">
+          <li class="left__item-one"><img class="left__image" width="100px" height="100px" src="images/circle.svg" alt=""></li>
           <li class="left__item-two"><a href="" class="left__link-two">
             <h2 class="left__text"><span class="bold">Leo's</span>Testing Ground</h2>
           </a>
           </li>
-        </div>
+        </ul>
       </ul>
       <ul class="right">
         <li class="right__item-one">
-          <img src="images/info_icon.svg" alt="" class="right__icon">
+          <img src="images/info_icon.svg" width="100px" height="100px" alt="" class="right__icon">
           <a href="about.html" class="right__link">About</a>
         </li>
         <li class="right__item-two">
-          <a href="" class="right__option"><img class="setting-large" src="images/gear.svg" alt="" srcset=""><img class="setting-small" src="images/gear.svg" alt="" srcset=""></a>
-          <div class="right__prompt"><h5>You can change your viewing style here.</h5><div class="prompt__close">X</div></div>
+          <a href="" class="right__option"><img class="setting-large" width="100px" height="100px" src="images/gear.svg" alt="" srcset=""><img class="setting-small" src="images/gear.svg" width="100px" height="100px" alt="screws indicating options" srcset=""></a>
+          <div class="right__prompt"><h3>You can change your viewing style here.</h3><div class="prompt__close">X</div></div>
         </li>
       </ul>
     </nav>
@@ -69,17 +75,17 @@
           <p class="hero__pgr hero__pgr--bottom">- Winston S Churchill</p>
         </div>
               <section class="button-container">
-        <a class="button__hero" href="./projects.html">Explore Projects</a>
+        <a class="button__hero button__hero--hide" href="./projects.html">Explore Projects</a>
       </section>
       </section>
 
       <div class="heartbeat"> 
-        <div class="heartbeat__container"> <img class="heartbeat__image" src="./images/heartpulse.svg" alt="" srcset=""></div>
+        <div class="heartbeat__container"> <img class="heartbeat__image" width="100px" height="100px" src="./images/heartpulse.svg" alt="" srcset=""></div>
       </div>
     </main>
     <footer class="foo"></footer>
   </div>
-  <script type ="module" src="./scripts/loader.js"></script>
+  <script type="module" src="./scripts/loader.js"></script>
   <script type="module" src="./scripts/main.js"></script>
 
 </body>
