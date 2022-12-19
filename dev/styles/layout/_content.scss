@@ -1,6 +1,6 @@
 @use "../abstracts/" as *;
 
-.content {
+.sc-content {
     display: grid;
     grid-template-rows: 5fr 80fr 3fr;
     height: 100vh;
