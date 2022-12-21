@@ -276,7 +276,7 @@ body {
             width: 80%;
             margin: 0 auto;
             text-align: center;
-            font-size: clamp(1rem, 1vw + 1rem, 3.125rem);
+            font-size: clamp(1rem, 1vw + .3rem, 2.125rem);
             font-family: $monty-regular;
 
             @media (min-width: 1300px) {
