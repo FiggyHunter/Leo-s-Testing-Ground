@@ -5,6 +5,7 @@ function hideLoaderWithDelay(seconds) {
 
         setTimeout(()=> {
             loaderContainer.style.opacity = 0;
+            document.title = "Homepage | leotg.com"
         },seconds*1000);
 
         setTimeout(()=> {
