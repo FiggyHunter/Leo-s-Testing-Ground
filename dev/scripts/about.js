@@ -42,7 +42,7 @@ setTimeout(() => {
     console.log(animation);
     if (animation.animationName == "widthfun") animation.pause();
   });
-}, 2950);
+}, 2900);
 
 aboutMe.addEventListener("click", () => {
   document.getAnimations().forEach((animation) => {

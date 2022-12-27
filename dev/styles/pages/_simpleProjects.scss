@@ -8,6 +8,16 @@ body {
     background-color: map-get($color-map, "blue");
 }
 
+#transitioner {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 100;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
 
 .simple-container {
 
