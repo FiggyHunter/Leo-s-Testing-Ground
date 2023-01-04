@@ -8,14 +8,20 @@ body {
     background-color: map-get($color-map, "blue");
 }
 
+.options {transition: opacity .7s; opacity: 0;}
+
 #transitioner {
     position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: black;
-    z-index: 100;
+    z-index: 10000;
     transition: opacity 1s;
     opacity: 0;
+}
+
+.right__prompt {
+    transition: opacity .7s;
 }
 
 
@@ -85,13 +91,13 @@ body {
         font-family: "Montserrat ExtraBold Italic";
         width: 85%;
         margin: 0 auto;
-
+        transition: background-color .4s;
         h5 {
             font-size: clamp(1rem, 1.2vw + .6rem, 4.125rem);
         }
     
         &:hover,&:focus   {
-            background-color: red;
+            background-color: map-get($color-map, "red" );
             cursor: pointer;
         }
     
@@ -204,9 +210,10 @@ body {
     position: absolute;
     height: 100%;
     width: 100vw;
+    opacity: 0;
     z-index: 2;
     background-color: map-get($color-map, "blue");
-    display: grid;
+    display: none;
     grid-template-rows: 1fr 5fr 1fr 2fr 1.5fr;
     grid-template-columns: 1fr;
     grid-template-areas: 
@@ -216,6 +223,7 @@ body {
     "description"
     "cta";
     gap: .5rem;
+    transition: opacity 1.2s;
 
     &__title {
         color: map-get($color-map, "white");
@@ -238,6 +246,9 @@ body {
 
         img {
             width: clamp(2.5rem, 5vw + 1.75rem, 6.875rem);
+        }
+        :hover {
+            cursor: pointer;
         }
     }
 
@@ -315,6 +326,7 @@ body {
                 width: 100%;
                 color: white;
                 font-size: clamp(1.25rem, 2vw + 1rem, 3.125rem);
+                font-family: $monty-regular;
                 @media (max-width: 300px) {
                     font-size: 1rem;
                 }
