@@ -1,4 +1,5 @@
 import "../styles/pages/_about.scss";
+import { invokeTransitioner } from "./helpers/invokeTransitioner";
 
 const sheet = document.styleSheets[0];
 const firstpart = document.getElementsByClassName("first");
@@ -16,6 +17,21 @@ const closeAboutSiteContainer =
 const items = document.getElementsByClassName("item");
 let itemsArr = Array.from(items);
 let textArr = Array.from(document.getElementsByClassName("main-text"));
+const home__icon = document.getElementsByClassName("about-nav__image-ctr")[0];
+
+home__icon.addEventListener("click", ()=> {
+  switch (localStorage.getItem("view_option")) {
+    case "Advanced":
+      invokeTransitioner("index-complex.html");
+      break;
+    case "Simple" :
+    invokeTransitioner("index.html");
+    break;
+    default:
+      invokeTransitioner("index.html");
+      break;
+  }
+})
 
 function hideText(delay) {
   textArr.forEach((text) => {
@@ -52,11 +68,11 @@ aboutMe.addEventListener("click", () => {
   setTimeout(() => {
     console.log(aboutPersonContainer);
     aboutPersonContainer.style.visibility = "visible";
-  }, 2500);
+  }, 1600);
 
   setTimeout(() => {
     aboutPersonContainer.style.opacity = "1";
-  }, 3000);
+  }, 1700);
 
   itemsArr.forEach((item) => {
     item.getAnimations().forEach((animation) => {
