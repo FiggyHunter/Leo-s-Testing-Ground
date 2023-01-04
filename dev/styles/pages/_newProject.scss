@@ -1,6 +1,16 @@
 @use "../abstracts/" as *;
 @use "../base/reset" as *;
 
+#transitioner {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 10000;
+    transition: opacity 1s;
+    opacity: 0;
+}
+
 .content {
     font-family: $monty-bold;
     color: white;
