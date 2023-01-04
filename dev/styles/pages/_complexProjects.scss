@@ -1,5 +1,6 @@
 @use "../layout/navigation" as *;
 @use "../abstracts/" as *;
+@use "../components/loader" as *;
 
 .complex {
     height: 85%;
