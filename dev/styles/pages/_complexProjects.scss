@@ -19,8 +19,13 @@
     scroll-behavior: smooth;
     z-index: 20;
     @media (max-width: 800px) {
+        overflow-x: auto;
         overflow-y: auto;
     }
+}
+
+.complex-foo__navigation-item {
+    transition: background-color 1s;
 }
 
 .complex-hero {
@@ -157,10 +162,6 @@
     }
 }
 
-.first-cover {
-
-}
-
 .project-details {
     max-height: 99%;
     height: 100%;
@@ -199,6 +200,27 @@
 .button__hero--hide {
     display: none;
  }
+
+.new-project {
+
+    height: 96vh;
+    display: grid;
+    place-items: center;
+    h3 {
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-family: $monty-bold;
+    }
+    &__add {
+        gap: 1rem;
+        display: flex;
+        width: 80%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+}
 
 @keyframes mouse {
     0% {
