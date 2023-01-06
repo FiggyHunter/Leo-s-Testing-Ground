@@ -13,6 +13,7 @@ const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
 const display_options = document.getElementsByClassName("options")[0];
 const display_options_item = document.getElementsByClassName("options__item");
+const project_add = document.getElementsByClassName("projects__project--new")[0];
 let display_options_item_array = Array.from(display_options_item);
 let pageCounter = 0;
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
@@ -21,9 +22,7 @@ let description_logo_container;
 
 
 constructProjectPage(project_details[0], projects_array[0]);
-
 constructProjectPage(project_details[1], projects_array[1]);
-
 constructProjectPage(project_details[2], projects_array[2])
 
 function createTechnologiesUsedPicture(path) {
@@ -198,7 +197,7 @@ function onVisible(element, callback) {
       }
     });
   }).observe(element);
-}
+};
 
 
 navigationBox.forEach((box) => {
@@ -209,4 +208,8 @@ navigationBox.forEach((box) => {
     }, 1000);
     pages[Array.from(navigationBox).indexOf(box)].scrollIntoView();
   })
-})
+});
+
+project_add.addEventListener("click", () => {
+  invokeTransitioner("new-project.html")}
+);
