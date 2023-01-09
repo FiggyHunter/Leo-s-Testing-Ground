@@ -29,6 +29,10 @@
     border-bottom: 40px solid map-get($color-map, "red");
     top: -30px;
     right: 45px;
+
+    @media (max-width: 600px) {
+      right: 15px;
+    }
   }
 
   .prompt__close {
