@@ -1,7 +1,10 @@
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
 import {projects_array} from "./helpers/projectObjects"; 
+import '../styles/pages/_complexProjects.scss';
 
+const imgUrl = new URL('../images/calculator-project-image.png', import.meta.url).href
+console.log(imgUrl);
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
 const container = document.querySelector('.complex-container');
 const projects = document.getElementsByClassName('project-cover');
@@ -19,7 +22,10 @@ let pageCounter = 0;
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
 let project_details = document.getElementsByClassName("project-details");
 let description_logo_container;
+let project_covers = document.getElementsByClassName("project-cover__darken");
 
+
+project_covers[0].style.backgroundImage = `url(${imgUrl})`;
 
 constructProjectPage(project_details[0], projects_array[0]);
 constructProjectPage(project_details[1], projects_array[1]);
