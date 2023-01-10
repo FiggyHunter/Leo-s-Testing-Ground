@@ -55,7 +55,6 @@ function showText() {
 
 setTimeout(() => {
   document.getAnimations().forEach((animation) => {
-    console.log(animation);
     if (animation.animationName == "widthfun") animation.pause();
   });
 }, 2900);
