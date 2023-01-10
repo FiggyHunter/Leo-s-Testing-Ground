@@ -3,8 +3,12 @@ import { fadeOut } from "./helpers/invokeFadeOut";
 import {projects_array} from "./helpers/projectObjects"; 
 import '../styles/pages/_complexProjects.scss';
 
-const imgUrl = new URL('../images/calculator-project-image.png', import.meta.url).href
-console.log(imgUrl);
+const imgUrl = new URL('../images/calculator-project-image.png', import.meta.url).href;
+const imgUrl2 = new URL('../images/businesswebsitecover.png', import.meta.url).href;
+const imgUrl3 = new URL('../images/dadjokecover.png', import.meta.url).href;
+const imgUrl4 = new URL('../images/leotgcover.png', import.meta.url).href;
+
+
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
 const container = document.querySelector('.complex-container');
 const projects = document.getElementsByClassName('project-cover');
@@ -17,6 +21,8 @@ const prompt = document.getElementsByClassName("right__prompt")[0];
 const display_options = document.getElementsByClassName("options")[0];
 const display_options_item = document.getElementsByClassName("options__item");
 const project_add = document.getElementsByClassName("projects__project--new")[0];
+const project_close = Array.from(document.getElementsByClassName("description__close"));
+const first_page = document.getElementsByClassName("complex-hero")[0];
 let display_options_item_array = Array.from(display_options_item);
 let pageCounter = 0;
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
@@ -24,12 +30,30 @@ let project_details = document.getElementsByClassName("project-details");
 let description_logo_container;
 let project_covers = document.getElementsByClassName("project-cover__darken");
 
+document.addEventListener("DOMContentLoaded", () => {
+project_close.forEach((project) => {
+  project.addEventListener("click", ()=> {
+    first_page.scrollIntoView();
+    callback();
+  })
+})
+})
 
 project_covers[0].style.backgroundImage = `url(${imgUrl})`;
+project_covers[1].style.backgroundImage = `url(${imgUrl2})`;
+project_covers[1].style.backgroundRepeat = "no-repeat";
+project_covers[1].style.backgroundSize = "100% 95%";
+project_covers[2].style.backgroundImage = `url(${imgUrl3})`;
+project_covers[2].style.backgroundRepeat = "no-repeat";
+project_covers[2].style.backgroundSize = "100% 95%";
+project_covers[3].style.backgroundImage = `url(${imgUrl4})`;
+project_covers[3].style.backgroundRepeat = "no-repeat";
+project_covers[3].style.backgroundSize = "100% 95%";
 
 constructProjectPage(project_details[0], projects_array[0]);
 constructProjectPage(project_details[1], projects_array[1]);
-constructProjectPage(project_details[2], projects_array[2])
+constructProjectPage(project_details[2], projects_array[2]);
+constructProjectPage(project_details[3], projects_array[3]);
 
 function createTechnologiesUsedPicture(path) {
   let image_element = document.createElement("img");
@@ -63,7 +87,7 @@ function constructProjectPage(page,object) {
     github_link.href = object.sourceCode;
     live_view.href = object.liveView;
   } catch (error) {
-    console.log("Object does not exist!" + error);
+    console.log("Object does not exist!" + EvalError(error));
   }
 }
 
