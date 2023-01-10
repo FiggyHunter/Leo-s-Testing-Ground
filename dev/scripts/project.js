@@ -20,10 +20,8 @@ let project__description = document.getElementsByClassName(
 let github_link = document.getElementsByClassName("cta__btn")[0];
 let live_view = document.getElementsByClassName("play")[0];
 
-console.log(project_image.src);
-
 projects.forEach((project) => {
-  if (project.id == "fifth" || project.id == "fourth") return;
+  if (project.id == "fifth") return;
   project.addEventListener("click", () => {
     renderProject(project.querySelector("h5").innerHTML);
     project_description.style.display = "grid";
@@ -50,12 +48,11 @@ function renderProject(title) {
     document.querySelectorAll(".description__logos img")
     .forEach(img => img.remove());
   for (let i = 0; i < projects_array.length; i++) {
-    console.log(projects_array[i].title + " ---  " +  title)
-    if (projects_array[i].title.toUpperCase() ==  title) {
+    if (projects_array[i].title.toUpperCase().toString() ===  title.toString()) {
       projectToBeRendered = projects_array[i];
     }
   }
-
+  
   try {
     project_title.innerHTML = projectToBeRendered.title;
     project_image.src = projectToBeRendered.image;
