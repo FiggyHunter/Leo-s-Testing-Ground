@@ -23,6 +23,7 @@ const display_options_item = document.getElementsByClassName("options__item");
 const project_add = document.getElementsByClassName("projects__project--new")[0];
 const project_close = Array.from(document.getElementsByClassName("description__close"));
 const first_page = document.getElementsByClassName("complex-hero")[0];
+const about_me_button = document.getElementsByClassName("right__item-one")[0];
 let display_options_item_array = Array.from(display_options_item);
 let pageCounter = 0;
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
@@ -34,7 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
 project_close.forEach((project) => {
   project.addEventListener("click", ()=> {
     first_page.scrollIntoView();
-    callback();
+    setTimeout(() => {
+      callback();
+    }, 1500);
   })
 })
 })
@@ -54,6 +57,11 @@ constructProjectPage(project_details[0], projects_array[0]);
 constructProjectPage(project_details[1], projects_array[1]);
 constructProjectPage(project_details[2], projects_array[2]);
 constructProjectPage(project_details[3], projects_array[3]);
+
+about_me_button.addEventListener("click", (e) => {
+  e.preventDefault();
+  invokeTransitioner("about.html");
+})
 
 function createTechnologiesUsedPicture(path) {
   let image_element = document.createElement("img");
@@ -77,10 +85,10 @@ function constructProjectPage(page,object) {
     project_image.src = object.image;
     project__description.querySelector("p").innerText = object.description;
       object.technologiesUsed.forEach((technology) => {
-          console.log(`Creating technology: ${technology}
-                       Source: ${object}
-                       Destination: ${page}`);
-                       console.log(page);
+          // console.log(`Creating technology: ${technology}
+          //              Source: ${object}
+          //              Destination: ${page}`);
+          //              console.log(page);
           createTechnologiesUsedPicture(technology);
       });
 
