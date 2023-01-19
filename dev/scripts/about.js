@@ -1,5 +1,6 @@
 import "../styles/pages/_about.scss";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
+import {ConditionalTransitioner} from "./helpers/invokeConditionalTransitioner";
 
 const sheet = document.styleSheets[0];
 const firstpart = document.getElementsByClassName("first");
@@ -18,19 +19,19 @@ const items = document.getElementsByClassName("item");
 let itemsArr = Array.from(items);
 let textArr = Array.from(document.getElementsByClassName("main-text"));
 const home__icon = document.getElementsByClassName("about-nav__image-ctr")[0];
+const nav_home_icon = Array.from(document.getElementsByClassName("nav__image-ctr"));
+const nav_home_icon_two = Array.from(document.getElementsByClassName("nav__image-ctr-two"));
+
+nav_home_icon.forEach(icon => {
+  ConditionalTransitioner(icon);
+});
+
+nav_home_icon_two.forEach(icon => {
+  ConditionalTransitioner(icon);
+});
 
 home__icon.addEventListener("click", ()=> {
-  switch (localStorage.getItem("view_option")) {
-    case "Advanced":
-      invokeTransitioner("index-complex.html");
-      break;
-    case "Simple" :
-    invokeTransitioner("index.html");
-    break;
-    default:
-      invokeTransitioner("index.html");
-      break;
-  }
+  ConditionalTransitioner(icon);
 })
 
 function hideText(delay) {
@@ -52,12 +53,6 @@ function showText() {
     text.style.opacity = 1;
   });
 }
-
-setTimeout(() => {
-  document.getAnimations().forEach((animation) => {
-    if (animation.animationName == "widthfun") animation.pause();
-  });
-}, 2900);
 
 aboutMe.addEventListener("click", () => {
   document.getAnimations().forEach((animation) => {
