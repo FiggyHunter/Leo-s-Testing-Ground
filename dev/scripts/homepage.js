@@ -11,8 +11,6 @@ const open_options = document.getElementsByClassName("right__option")[0];
 const open_about_button = document.getElementsByClassName("right__link")[0];
 const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
-console.log(localStorage.getItem("view_option"));
-
 
 document.addEventListener("DOMContentLoaded", ()=> { hideLoaderWithDelay(2)
     if(sessionStorage.getItem("prompt") != undefined)
