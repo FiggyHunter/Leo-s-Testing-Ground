@@ -195,7 +195,7 @@
 .one {
     position: relative;
     z-index: 2;
-    animation: widthfun 3s infinite,reveal .5s paused;
+    animation: widthfun 3s,reveal .5s paused;
     animation-iteration-count: unset, 1;
     animation-fill-mode: forwards;
 }
@@ -229,7 +229,7 @@
     grid-area: two;
     width: 0%;
     position: relative;
-    animation: widthfun 3s infinite,reveal 1s paused;
+    animation: widthfun 3s ,reveal 1s paused;
     animation-iteration-count: unset, 1;
     animation-fill-mode: forwards;
     display: flex;
@@ -277,7 +277,7 @@
 .three {
     position: relative;
     grid-area: three;
-    animation: widthfun 3s infinite,reveal 1.5s paused;
+    animation: widthfun 3s ,reveal 1.5s paused;
     animation-iteration-count: unset, 1;
     animation-fill-mode: forwards;
 }
