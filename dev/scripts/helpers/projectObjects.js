@@ -57,7 +57,7 @@ dadjokes.liveView = "https://www.leotg.com/dadjokes";
 
 leotg.description = "Leo Testing ground is a website made to showcase projects that are made by me, Leonardo Roić. This website's main goal is to present projects to potential clients in an unique way. It's basically a project catalogue that has been overenginered to look as visualy pleasent, as possible."
 leotg.sourceCode = "https://github.com/FiggyHunter/Leo-s-Testing-Ground";
-leotg.liveView = "http://localhost:8080/index-complex.html";
+leotg.liveView = "";
 
 leotg.technologiesUsed.push(img_html);
 leotg.technologiesUsed.push(img_css);
