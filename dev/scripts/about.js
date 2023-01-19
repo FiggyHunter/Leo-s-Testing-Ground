@@ -31,7 +31,7 @@ nav_home_icon_two.forEach(icon => {
 });
 
 home__icon.addEventListener("click", ()=> {
-  ConditionalTransitioner(icon);
+  ConditionalTransitioner(home__icon);
 })
 
 function hideText(delay) {
