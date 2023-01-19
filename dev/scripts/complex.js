@@ -32,6 +32,8 @@ let description_logo_container;
 let project_covers = document.getElementsByClassName("project-cover__darken");
 
 document.addEventListener("DOMContentLoaded", () => {
+  if(sessionStorage.getItem("prompt") != undefined)
+  prompt.style.display = "none";
 project_close.forEach((project) => {
   project.addEventListener("click", ()=> {
     first_page.scrollIntoView();
@@ -177,7 +179,14 @@ open_options.addEventListener("click", (e) => {
 });
 
 prompt.addEventListener("click", ()=> {
-  fadeOut(prompt, 1000);
+  prompt.addEventListener("click", ()=> {
+    if(sessionStorage.getItem("prompt") == undefined)
+    {
+        sessionStorage.setItem("prompt", "closed");
+        fadeOut(prompt, 1000);
+    }
+    else prompt.style.opacity = "0";
+})
 });
 
 document.addEventListener('wheel', (e)=> {

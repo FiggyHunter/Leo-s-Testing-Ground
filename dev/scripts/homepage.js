@@ -2,7 +2,6 @@ import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
 
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
-document.addEventListener("DOMContentLoaded", hideLoaderWithDelay(2));
 let about_site = document.getElementsByClassName("right__link")[0];
 const display_options = document.getElementsByClassName("options")[0];
 const display_options_item = document.getElementsByClassName("options__item");
@@ -14,6 +13,11 @@ const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
 console.log(localStorage.getItem("view_option"));
 
+
+document.addEventListener("DOMContentLoaded", ()=> { hideLoaderWithDelay(2)
+    if(sessionStorage.getItem("prompt") != undefined)
+        prompt.style.display = "none";
+});
 
 function hideLoaderWithDelay(seconds) {
 
@@ -88,7 +92,12 @@ open_projects_button.addEventListener("click", (e) => {
 })
 
 prompt.addEventListener("click", ()=> {
-    fadeOut(prompt, 1000);
+    if(sessionStorage.getItem("prompt") == undefined)
+    {
+        sessionStorage.setItem("prompt", "closed");
+        fadeOut(prompt, 1000);
+    }
+    else prompt.style.opacity = "0";
 })
 
 }
