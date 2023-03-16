@@ -16,7 +16,7 @@ body {
     height: 100vh;
     background-color: black;
     z-index: 10000;
-    transition: opacity 1s;
+    transition: opacity .8s;
     opacity: 0;
 }
 
@@ -329,7 +329,7 @@ body {
             h5 {
                 width: 100%;
                 color: white;
-                font-size: clamp(1.25rem, 2vw + 1rem, 3.125rem);
+                font-size: clamp(1.25rem, 2vw + 1rem, 2rem);
                 font-family: $monty-regular;
                 @media (max-width: 300px) {
                     font-size: 1rem;
