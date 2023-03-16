@@ -1,3 +1,4 @@
+import hideLoaderWithDelay from "./helpers/hideLoaderWithDelay";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
 
@@ -12,90 +13,84 @@ const open_about_button = document.getElementsByClassName("right__link")[0];
 const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
 
-document.addEventListener("DOMContentLoaded", ()=> { hideLoaderWithDelay(2)
-    if(sessionStorage.getItem("prompt") != undefined)
-        prompt.style.display = "none";
+(function () {
+  window.onpageshow = function (event) {
+    if (event.persisted) {
+      window.location.reload();
+      console.log("Persist.");
+    }
+  };
+})();
+
+window.addEventListener("load", () => {
+  hideLoaderWithDelay(loaderContainer, 3);
+  if (sessionStorage.getItem("prompt") !== undefined)
+    prompt.style.display = "none";
 });
 
-function hideLoaderWithDelay(seconds) {
+if (localStorage.getItem("view_option") === "Advanced") {
+  invokeTransitioner("index-complex.html");
+} else {
+  about_site.addEventListener("click", () => {
+    invokeTransitioner("about.html");
+  });
 
-    setTimeout(()=> {
-        loaderContainer.style.opacity = 0;
-        document.title = "Leo's Testing Ground | Home"
-    },seconds*1000);
-
-    setTimeout(()=> {
-        loaderContainer.remove();
-    },3000)
-}
-
-hideLoaderWithDelay(3);
-
-if(localStorage.getItem("view_option") == "Advanced")
-{    
-    invokeTransitioner("index-complex.html");
-}
-else {
-about_site.addEventListener("click", () => {invokeTransitioner("about.html")});
-
-if(sessionStorage.getItem("use_loader") == undefined) {
+  if (sessionStorage.getItem("use_loader") == undefined) {
     sessionStorage.setItem("use_loader", true);
     display_options.style.opacity = 1;
-}
-else {
+  } else {
     loaderContainer.style.display = "none";
-}
+  }
 
-if(localStorage.getItem("options_setting") == undefined) {
+  if (localStorage.getItem("options_setting") == undefined) {
     display_options.style.display = "grid";
     display_options.style.opacity = 1;
-}
-else {
+  } else {
     display_options.style.display = "none";
-}
+  }
 
-display_options_item_array.forEach(item => {
+  display_options_item_array.forEach((item) => {
     item.addEventListener("click", () => {
-        localStorage.setItem("view_option",item.querySelector("h1").childNodes[0].textContent);
-        if(item.querySelector("h1").childNodes[0].textContent == "Advanced")
-        {
-            localStorage.setItem("options_setting", "set");
-            invokeTransitioner("index-complex.html");
-        }
-        else { fadeOut(display_options, 1000);
+      localStorage.setItem(
+        "view_option",
+        item.querySelector("h1").childNodes[0].textContent
+      );
+      if (item.querySelector("h1").childNodes[0].textContent == "Advanced") {
         localStorage.setItem("options_setting", "set");
-    }
-    })
-});
+        invokeTransitioner("index-complex.html");
+      } else {
+        fadeOut(display_options, 1000);
+        localStorage.setItem("options_setting", "set");
+      }
+    });
+  });
 
-close_options.addEventListener("click", () => {fadeOut(display_options)})
+  close_options.addEventListener("click", () => {
+    fadeOut(display_options);
+  });
 
-
-open_options.addEventListener("click", (e) => {
+  open_options.addEventListener("click", (e) => {
     window.getComputedStyle(display_options).opacity;
     e.preventDefault();
     display_options.style.display = "grid";
     setTimeout(() => {
-        display_options.style.opacity = "1";
+      display_options.style.opacity = "1";
     }, 100);
-})
+  });
 
-open_about_button.addEventListener("click", () => {
-   invokeTransitioner("about.html"); 
-})
+  open_about_button.addEventListener("click", () => {
+    invokeTransitioner("about.html");
+  });
 
-open_projects_button.addEventListener("click", (e) => {
+  open_projects_button.addEventListener("click", (e) => {
     e.preventDefault();
     invokeTransitioner("projects.html");
-})
+  });
 
-prompt.addEventListener("click", ()=> {
-    if(sessionStorage.getItem("prompt") == undefined)
-    {
-        sessionStorage.setItem("prompt", "closed");
-        fadeOut(prompt, 1000);
-    }
-    else prompt.style.opacity = "0";
-})
-
+  prompt.addEventListener("click", () => {
+    if (sessionStorage.getItem("prompt") == undefined) {
+      sessionStorage.setItem("prompt", "closed");
+      fadeOut(prompt, 1000);
+    } else prompt.style.opacity = "0";
+  });
 }
