@@ -120,6 +120,7 @@ function constructProjectPage(page, object) {
 }
 
 window.addEventListener("wheel", (evt) => {
+  if (evt.ctrlKey) return;
   evt.preventDefault();
 
   //scroll deirection
@@ -190,6 +191,7 @@ prompt.addEventListener("click", () => {
 });
 
 window.addEventListener("wheel", (e) => {
+  if (evt.ctrlKey) return;
   throttle(callback, 1000, e);
 });
 
