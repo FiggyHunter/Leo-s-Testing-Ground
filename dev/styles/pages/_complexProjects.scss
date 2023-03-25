@@ -1,6 +1,7 @@
 @use "../layout/navigation" as *;
 @use "../abstracts/" as *;
 @use "../components/loader" as *;
+@use "../components/iframe" as *;
 
 .complex {
     height: 85%;
