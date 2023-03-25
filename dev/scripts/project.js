@@ -19,6 +19,7 @@ let project__description = document.getElementsByClassName(
 )[0];
 let github_link = document.getElementsByClassName("cta__btn")[0];
 let live_view = document.getElementsByClassName("play")[0];
+let iframe_global = document.getElementsByClassName("iframe-global")[0];
 
 projects.forEach((project) => {
   if (project.id == "fifth") return;
@@ -45,14 +46,15 @@ add_project.addEventListener("click", (e) => {
 });
 
 function renderProject(title) {
-    document.querySelectorAll(".description__logos img")
-    .forEach(img => img.remove());
+  document
+    .querySelectorAll(".description__logos img")
+    .forEach((img) => img.remove());
   for (let i = 0; i < projects_array.length; i++) {
-    if (projects_array[i].title.toUpperCase().toString() ===  title.toString()) {
+    if (projects_array[i].title.toUpperCase().toString() === title.toString()) {
       projectToBeRendered = projects_array[i];
     }
   }
-  
+
   try {
     project_title.innerHTML = projectToBeRendered.title;
     project_image.src = projectToBeRendered.image;
@@ -65,6 +67,7 @@ function renderProject(title) {
 
     github_link.href = projectToBeRendered.sourceCode;
     live_view.href = projectToBeRendered.liveView;
+    iframe_global.src = projectToBeRendered.liveView;
   } catch (error) {
     console.log("Object does not exist!");
   }

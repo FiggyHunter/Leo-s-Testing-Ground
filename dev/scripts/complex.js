@@ -43,7 +43,6 @@ let project_covers = document.getElementsByClassName("project-cover__darken");
   window.onpageshow = function (event) {
     if (event.persisted) {
       window.location.reload();
-      console.log("Persist.");
     }
   };
 })();
@@ -120,7 +119,7 @@ function constructProjectPage(page, object) {
   }
 }
 
-container.addEventListener("wheel", (evt) => {
+window.addEventListener("wheel", (evt) => {
   evt.preventDefault();
 
   //scroll deirection
