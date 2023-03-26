@@ -28,13 +28,13 @@ body {
 .simple-container {
 
     display: grid;
-    grid-template-rows: 1.2fr 20fr;
+    grid-template-rows: 1.2fr 20fr 1.2fr;
     grid-template-columns: 1fr;
     height: 100vh;
     position: relative;
 
     @media (min-width: 1300px) {
-        grid-template-rows: 20fr 1.2fr;
+        grid-template-rows: 1.2fr 20fr 1.2fr;
     }
 }
 
@@ -178,7 +178,7 @@ body {
     justify-content: center;
     font-family: "Montserrat Bold Italic";
     text-transform: uppercase;
-    order: 0;
+    order: 1;
     @media (min-width: 1300px) {
         order: 1;
     }
