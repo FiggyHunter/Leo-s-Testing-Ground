@@ -1,8 +1,8 @@
 import hideLoaderWithDelay from "./helpers/hideLoaderWithDelay";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
-import { projects_array } from "./helpers/projectObjects";
 import "../styles/pages/_complexProjects.scss";
+import { renderProjectForComplex } from "./helpers/renderProjectForComplex";
 
 const imgUrl = new URL(
   "../images/calculator-project-image.png",
@@ -31,8 +31,6 @@ const first_page = document.getElementsByClassName("complex-hero")[0];
 const about_me_button = document.getElementsByClassName("right__item-one")[0];
 let display_options_item_array = Array.from(display_options_item);
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
-let project_details = document.getElementsByClassName("project-details");
-let description_logo_container;
 let project_covers = document.getElementsByClassName("project-cover__darken");
 
 (function () {
@@ -42,6 +40,20 @@ let project_covers = document.getElementsByClassName("project-cover__darken");
     }
   };
 })();
+
+for (let i = 1; i <= 4; i++) {
+  renderProjectForComplex(i);
+}
+
+window.addEventListener("wheel", (e) => {
+  if (e.ctrlKey) return;
+  throttle(callback, 1000, e);
+});
+
+window.addEventListener("touchstart", (e) => {
+  throttle(callback, 1000, e);
+  throttlePhone(callback, 1000, e);
+});
 
 window.addEventListener("load", () => {
   hideLoaderWithDelay(loaderContainer, 3);
@@ -57,68 +69,8 @@ window.addEventListener("load", () => {
   });
 });
 
-project_covers[0].style.backgroundImage = `url(${imgUrl})`;
-project_covers[1].style.backgroundImage = `url(${imgUrl2})`;
-project_covers[1].style.backgroundRepeat = "no-repeat";
-project_covers[1].style.backgroundSize = "100% 95%";
-project_covers[2].style.backgroundImage = `url(${imgUrl3})`;
-project_covers[2].style.backgroundRepeat = "no-repeat";
-project_covers[2].style.backgroundSize = "100% 95%";
-project_covers[3].style.backgroundImage = `url(${imgUrl4})`;
-project_covers[3].style.backgroundRepeat = "no-repeat";
-project_covers[3].style.backgroundSize = "100% 95%";
-
-constructProjectPage(project_details[0], projects_array[0]);
-constructProjectPage(project_details[1], projects_array[1]);
-constructProjectPage(project_details[2], projects_array[2]);
-constructProjectPage(project_details[3], projects_array[3]);
-
-about_me_button.addEventListener("click", (e) => {
-  e.preventDefault();
-  invokeTransitioner("about.html");
-});
-
-function createTechnologiesUsedPicture(path) {
-  let image_element = document.createElement("img");
-
-  image_element.src = path;
-  image_element.alt = "image of technology used";
-  description_logo_container.appendChild(image_element);
-}
-
-function constructProjectPage(page, object) {
-  let project_title = page.querySelector(".description__title");
-  let project_image = page.querySelectorAll(".image-container__image")[0];
-  let project__description = page.querySelectorAll(
-    ".description__text-container"
-  )[0];
-  let github_link = page.querySelectorAll(".cta__btn")[0];
-  let live_view = page.querySelectorAll(".play")[0];
-  description_logo_container = page.querySelectorAll(".description__logos")[0];
-
-  try {
-    project_title.innerHTML = object.title;
-    project_image.src = object.image;
-    project__description.querySelector("p").innerText = object.description;
-    object.technologiesUsed.forEach((technology) => {
-      // console.log(`Creating technology: ${technology}
-      //              Source: ${object}
-      //              Destination: ${page}`);
-      //              console.log(page);
-      createTechnologiesUsedPicture(technology);
-    });
-
-    github_link.href = object.sourceCode;
-    live_view.href = object.liveView;
-  } catch (error) {
-    console.log("Object does not exist!" + EvalError(error));
-  }
-}
-
 window.addEventListener("wheel", (evt) => {
   if (evt.ctrlKey) return;
-  evt.preventDefault();
-
   //scroll deirection
   let delta = evt.deltaY;
   //take widht of container:
@@ -129,6 +81,33 @@ window.addEventListener("wheel", (evt) => {
     contWidth = -contWidth;
   }
   container.scrollLeft += contWidth;
+});
+
+about_me_button.addEventListener("click", (e) => {
+  e.preventDefault();
+  invokeTransitioner("about.html");
+});
+
+close_options.addEventListener("click", () => {
+  fadeOut(display_options);
+});
+
+open_options.addEventListener("click", (e) => {
+  window.getComputedStyle(display_options).opacity;
+  e.preventDefault();
+  display_options.style.display = "grid";
+  setTimeout(() => {
+    display_options.style.opacity = "1";
+  }, 100);
+});
+
+prompt.addEventListener("click", () => {
+  prompt.addEventListener("click", () => {
+    if (sessionStorage.getItem("prompt") == undefined) {
+      sessionStorage.setItem("prompt", "closed");
+      fadeOut(prompt, 1000);
+    } else prompt.style.opacity = "0";
+  });
 });
 
 // scrollintoview js.
@@ -164,38 +143,6 @@ display_options_item_array.forEach((item) => {
   });
 });
 
-close_options.addEventListener("click", () => {
-  fadeOut(display_options);
-});
-
-open_options.addEventListener("click", (e) => {
-  window.getComputedStyle(display_options).opacity;
-  e.preventDefault();
-  display_options.style.display = "grid";
-  setTimeout(() => {
-    display_options.style.opacity = "1";
-  }, 100);
-});
-
-prompt.addEventListener("click", () => {
-  prompt.addEventListener("click", () => {
-    if (sessionStorage.getItem("prompt") == undefined) {
-      sessionStorage.setItem("prompt", "closed");
-      fadeOut(prompt, 1000);
-    } else prompt.style.opacity = "0";
-  });
-});
-
-window.addEventListener("wheel", (e) => {
-  if (evt.ctrlKey) return;
-  throttle(callback, 1000, e);
-});
-
-window.addEventListener("touchstart", (e) => {
-  throttle(callback, 1000, e);
-  throttlePhone(callback, 1000, e);
-});
-
 let time = Date.now();
 
 function throttle(fn, wait, event = undefined) {
@@ -225,15 +172,15 @@ function callback() {
     onVisible(pages[index], () => {
       // console.log(pages[index]);
       for (let j = 0; j < navigationBox.length; j++) {
-        navigationBox[j].style.backgroundColor = "transparent";
+        navigationBox[j].classList.remove("--active-link");
       }
-      navigationBox[index].style.backgroundColor = "white";
+      navigationBox[index - 1].classList.add("--active-link");
     });
   }
 }
 
 function onVisible(element, callback) {
-  new IntersectionObserver((entries, observer) => {
+  new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio === 1) {
         callback(element);
@@ -248,10 +195,21 @@ navigationBox.forEach((box) => {
     setTimeout(() => {
       callback();
     }, 1000);
-    pages[Array.from(navigationBox).indexOf(box)].scrollIntoView();
+    pages[Array.from(navigationBox).indexOf(box) + 1].scrollIntoView();
   });
 });
 
 project_add.addEventListener("click", () => {
   invokeTransitioner("new-project.html");
 });
+
+project_covers[0].style.backgroundImage = `url(${imgUrl})`;
+project_covers[1].style.backgroundImage = `url(${imgUrl2})`;
+project_covers[1].style.backgroundRepeat = "no-repeat";
+project_covers[1].style.backgroundSize = "100% 95%";
+project_covers[2].style.backgroundImage = `url(${imgUrl3})`;
+project_covers[2].style.backgroundRepeat = "no-repeat";
+project_covers[2].style.backgroundSize = "100% 95%";
+project_covers[3].style.backgroundImage = `url(${imgUrl4})`;
+project_covers[3].style.backgroundRepeat = "no-repeat";
+project_covers[3].style.backgroundSize = "100% 95%";
