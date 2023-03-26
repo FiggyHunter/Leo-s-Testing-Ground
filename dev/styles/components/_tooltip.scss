@@ -1,0 +1,33 @@
+@use "../abstracts/font" as *;
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 100%;
+  }
+
+  .tooltip {
+    position: relative;
+    display: flex;
+  }
+  
+  .tooltip .tooltiptext {
+
+    font-size: 1rem;
+    font-family: $monty-bold;
+    width: 150%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    visibility: hidden;
+    opacity: 0%;
+    transition: all .5s;
+    /* Position the tooltip */
+    position: absolute;
+    align-self: center;
+    z-index: 1;
+    top: 100%;
+    left: -20%;
+  }
