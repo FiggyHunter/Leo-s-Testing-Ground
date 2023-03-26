@@ -15,12 +15,9 @@ const imgUrl4 = new URL("../images/leotgcover.png", import.meta.url).href;
 
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
 const container = document.querySelector(".complex-container");
-const projects = document.getElementsByClassName("project-cover");
 const pages = document.querySelectorAll(".complex-page");
 const close_options = document.getElementsByClassName("close-btn")[0];
 const open_options = document.getElementsByClassName("right__option")[0];
-const open_about_button = document.getElementsByClassName("right__link")[0];
-const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
 const display_options = document.getElementsByClassName("options")[0];
 const display_options_item = document.getElementsByClassName("options__item");
@@ -33,7 +30,6 @@ const project_close = Array.from(
 const first_page = document.getElementsByClassName("complex-hero")[0];
 const about_me_button = document.getElementsByClassName("right__item-one")[0];
 let display_options_item_array = Array.from(display_options_item);
-let pageCounter = 0;
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
 let project_details = document.getElementsByClassName("project-details");
 let description_logo_container;
