@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+.red-filter {
+    filter: invert(81%) sepia(90%) saturate(6829%) hue-rotate(356deg) brightness(99%) contrast(117%);
+
+
+}
+
 .--bold {
     font-family: $monty-bold;
 }
@@ -28,11 +34,10 @@
 
 .about__home-nav {
     position: absolute;
-    height: 7%;
     display: flex;
-    top: .6rem;
-    left: .3rem;
-    z-index: 100;
+    top: 1.1vw;
+    left: .2rem;
+    z-index: 100000;
     align-items: center;
 }
 
@@ -82,7 +87,8 @@
         }
 
         .nav__image-ctr {
-             width: clamp(2.5rem, 2vw + 2.5rem, 4.375rem);
+             opacity: 0%;
+             visibility: hidden;
         }
     }
 }
@@ -126,8 +132,9 @@
          align-items: end;
     }
 
-    .nav__image-two-ctr {
-         width: clamp(2.5rem, 2vw + 2.5rem, 4.375rem);
+    .nav__image-two {
+         visibility: hidden !important;
+         opacity: 0 !important;
     }
     
     .about-site-ctr__text__pgr {
