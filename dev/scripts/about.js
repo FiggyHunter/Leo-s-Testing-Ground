@@ -36,7 +36,7 @@ nav_home_icon_two.forEach((icon) => {
 
 home__icon.addEventListener("click", (e) => {
   e.preventDefault();
-  ConditionalTransitioner(home__icon);
+  invokeTransitioner("index.html");
 });
 
 function hideText(delay) {
@@ -82,9 +82,6 @@ aboutMe.addEventListener("click", () => {
 
 aboutSite.addEventListener("click", () => {
   itemsArr.forEach((item) => {
-    // if(item.classList.contains("one") || item.classList.contains("two")   || item.classList.contains("three") ) {
-    //     item.style.
-    // }
     document.documentElement.style.setProperty("--revealBorder", "#110635");
   });
 
