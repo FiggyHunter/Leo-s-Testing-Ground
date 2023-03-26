@@ -3,6 +3,13 @@
 @use "../components/loader" as *;
 @use "../components/iframe" as *;
 
+.project-cover__darken {
+    @media (max-width: 500px) {
+        background-size: unset !important;
+        background-repeat: unset !important;
+    }
+}
+
 .complex {
     height: 85%;
     display: flex;
@@ -47,7 +54,8 @@
 
     &__navigation {
         display: grid;
-        grid-template-columns: repeat(10, 1fr);
+
+        grid-template-columns: repeat(5, 1fr);
         grid-template-rows: 1fr;
         padding: 0px;
         width: 100%;
@@ -55,37 +63,31 @@
         justify-content: space-between;
         align-items: center;
         &-item {
+            $text-color: white;
+
+            color:$text-color;
+            font-family: $monty-bold;
             border: 3px solid white;
-            @media (max-width: 500px) {
-                padding: 5px;
+            @media (max-width: 800px) {
+                padding: 1px;
+                font-size: 8.5px;
             }
-            padding: 10px;
-            width: 50%;
+            padding: 3px;
+            width: 90%;
             justify-self: center;
             &:hover {
                 cursor: pointer;
-            }
-            &--active-link {
-                background-color: white;
-                transition: background .5s;
             }
         }
         &-picture {
             width: 100%;
         }
-    
-  
     }
 }
-
-.navigation-item-1 {
-    padding: 3px;
-    color:black;
-    font-family: $monty-bold;
-    h3 {
-        font-size: clamp(.2rem, .4rem + .5vw, 1rem);
-    }
-    width: 90%;
+.--active-link {
+    background-color: white;
+    transition: background .5s;
+    color: black !important;
 }
 
 .arrow-container {
