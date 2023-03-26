@@ -2,9 +2,6 @@ import "../styles/pages/_about.scss";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { ConditionalTransitioner } from "./helpers/invokeConditionalTransitioner";
 
-const sheet = document.styleSheets[0];
-const firstpart = document.getElementsByClassName("first");
-const secondPart = document.getElementsByClassName("second");
 const aboutMe = document.getElementsByClassName("about-person")[0];
 const aboutSite = document.getElementsByClassName("about-site")[0];
 const aboutPersonContainer =
@@ -81,7 +78,7 @@ aboutMe.addEventListener("click", () => {
 });
 
 aboutSite.addEventListener("click", () => {
-  itemsArr.forEach((item) => {
+  itemsArr.forEach(() => {
     document.documentElement.style.setProperty("--revealBorder", "#110635");
   });
 
