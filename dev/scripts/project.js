@@ -21,6 +21,9 @@ let github_link = document.getElementsByClassName("cta__btn")[0];
 let live_view = document.getElementsByClassName("play")[0];
 let iframe_global = document.getElementsByClassName("iframe-global")[0];
 
+const description_logo_container =
+  document.getElementsByClassName("description__logos")[0];
+
 projects.forEach((project) => {
   if (project.id == "fifth") return;
   project.addEventListener("click", () => {
@@ -33,6 +36,9 @@ projects.forEach((project) => {
 });
 
 description_close_button.addEventListener("click", () => {
+  setTimeout(() => {
+    description_logo_container.innerHTML = `<p class="logos__info">Technologies used:</p>`;
+  }, 1000);
   fadeOut(project_description, 1000);
 });
 
@@ -73,12 +79,11 @@ function renderProject(title) {
   }
 }
 
-function createTechnologiesUsedPicture(path) {
+function createTechnologiesUsedPicture({ technology, path }) {
   let image_element = document.createElement("img");
-  let description_logo_container =
-    document.getElementsByClassName("description__logos")[0];
 
-  image_element.src = path;
-  image_element.alt = "image of technology used";
-  description_logo_container.appendChild(image_element);
+  // image_element.classList.add("tooltip");
+  // image_element.src = path;
+  // image_element.alt = technology;
+  description_logo_container.innerHTML += `<div class="tooltip"> <img src=${path} alt=${technology} /> <span class="tooltiptext"> ${technology} </span> </div>`;
 }
