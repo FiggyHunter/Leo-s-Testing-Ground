@@ -15,6 +15,7 @@ const closeAboutSiteContainer =
 const items = document.getElementsByClassName("item");
 let itemsArr = Array.from(items);
 let textArr = Array.from(document.getElementsByClassName("main-text"));
+const home__image = document.getElementsByClassName("about-nav__image")[0];
 const home__icon = document.getElementsByClassName("about-nav__image-ctr")[0];
 const nav_home_icon = Array.from(
   document.getElementsByClassName("nav__image-ctr")
@@ -83,10 +84,10 @@ aboutSite.addEventListener("click", () => {
   });
 
   hideText(2000);
-
   setTimeout(() => {
     aboutSiteContainer.style.visibility = "visible";
     aboutSiteContainer.style.opacity = 1;
+    home__image.classList.add("red-filter");
   }, 2500);
 });
 
@@ -109,6 +110,7 @@ closeAboutSiteContainer.addEventListener("click", () => {
 
   setTimeout(() => {
     document.documentElement.style.setProperty("--revealBorder", "red");
+    home__image.classList.remove("red-filter");
   }, 1000);
 
   setTimeout(() => {
