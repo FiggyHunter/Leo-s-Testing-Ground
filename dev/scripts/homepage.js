@@ -1,6 +1,7 @@
 import hideLoaderWithDelay from "./helpers/hideLoaderWithDelay";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
+import { ShowOrHidePrompt } from "./helpers/showOrHidePrompt";
 
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
 let about_site = document.getElementsByClassName("right__link")[0];
@@ -17,16 +18,15 @@ const prompt = document.getElementsByClassName("right__prompt")[0];
   window.onpageshow = function (event) {
     if (event.persisted) {
       window.location.reload();
-      console.log("Persist.");
     }
   };
 })();
 
 window.addEventListener("load", () => {
   hideLoaderWithDelay(loaderContainer, 3);
-  if (sessionStorage.getItem("prompt") !== undefined)
-    prompt.style.display = "none";
 });
+
+ShowOrHidePrompt(prompt);
 
 if (localStorage.getItem("view_option") === "Advanced") {
   invokeTransitioner("index-complex.html");
@@ -88,7 +88,10 @@ if (localStorage.getItem("view_option") === "Advanced") {
   });
 
   prompt.addEventListener("click", () => {
-    if (sessionStorage.getItem("prompt") == undefined) {
+    if (
+      sessionStorage.getItem("prompt") === undefined ||
+      sessionStorage.getItem("prompt") === null
+    ) {
       sessionStorage.setItem("prompt", "closed");
       fadeOut(prompt, 1000);
     } else prompt.style.opacity = "0";

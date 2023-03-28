@@ -3,6 +3,7 @@ import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
 import "../styles/pages/_complexProjects.scss";
 import { renderProjectForComplex } from "./helpers/renderProjectForComplex";
+import { ShowOrHidePrompt } from "./helpers/showOrHidePrompt";
 
 const imgUrl = new URL(
   "../images/calculator-project-image.png",
@@ -41,6 +42,8 @@ let project_covers = document.getElementsByClassName("project-cover__darken");
   };
 })();
 
+ShowOrHidePrompt(prompt);
+
 for (let i = 1; i <= 4; i++) {
   renderProjectForComplex(i);
 }
@@ -57,8 +60,6 @@ window.addEventListener("touchstart", (e) => {
 
 window.addEventListener("load", () => {
   hideLoaderWithDelay(loaderContainer, 3);
-  if (sessionStorage.getItem("prompt") !== undefined)
-    prompt.style.display = "none";
   project_close.forEach((project) => {
     project.addEventListener("click", () => {
       first_page.scrollIntoView();
@@ -103,7 +104,10 @@ open_options.addEventListener("click", (e) => {
 
 prompt.addEventListener("click", () => {
   prompt.addEventListener("click", () => {
-    if (sessionStorage.getItem("prompt") == undefined) {
+    if (
+      sessionStorage.getItem("prompt") === undefined ||
+      sessionStorage.getItem("prompt") === null
+    ) {
       sessionStorage.setItem("prompt", "closed");
       fadeOut(prompt, 1000);
     } else prompt.style.opacity = "0";
