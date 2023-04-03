@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
 .right__prompt {
+    :hover {cursor: pointer}
     position: relative;
     font-size: clamp(.525rem, 2vw + .1rem, 1rem);
     text-align: center;
