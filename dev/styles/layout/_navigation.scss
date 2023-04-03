@@ -74,13 +74,13 @@ nav {
                 justify-self: end;
                 align-self: end;
                 animation: rotation 5s infinite linear;
-
+                animation-fill-mode: forwards;
                 &:hover {
-                    animation: pause;
+                    animation-duration: 40s;
                 }
 
                 &:hover + .setting-small   {
-                    animation: pause;
+                    animation-duration: 30s;
                 }
             }
 
@@ -88,6 +88,7 @@ nav {
                 width: clamp(.5rem, 3vw + .3rem, 2.188rem);
                 align-self: start;
                 animation: rotation 5s infinite linear;
+                animation-fill-mode: backwards;
 
                 &:hover {
                     animation: pause;
