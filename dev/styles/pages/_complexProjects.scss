@@ -12,9 +12,13 @@
 
 .complex {
     height: 85%;
+    padding-top: 3rem;
     display: flex;
     justify-content: center;
     z-index: 30;
+    .hero-container {
+        width: 100%;
+    }
 }
 
 .complex-container {
@@ -64,7 +68,6 @@
         align-items: center;
         &-item {
             $text-color: white;
-
             color:$text-color;
             font-family: $monty-bold;
             border: 3px solid white;
