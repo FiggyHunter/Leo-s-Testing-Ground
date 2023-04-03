@@ -19,6 +19,14 @@ const home__icon = document.getElementsByClassName("about-nav__image-ctr")[0];
 
 ConditionalTransitioner(home__icon);
 
+(function () {
+  window.onpageshow = function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  };
+})();
+
 function hideText(delay) {
   textArr.forEach((text) => {
     setTimeout(() => {
