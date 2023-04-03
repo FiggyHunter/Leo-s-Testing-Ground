@@ -29,6 +29,7 @@ const about_me_button = document.getElementsByClassName("right__item-one")[0];
 const description_close = Array.from(
   document.getElementsByClassName("description__close")
 );
+const iframe = document.getElementsByClassName("iframe")[0];
 
 let display_options_item_array = Array.from(display_options_item);
 let navigationBox = document.querySelectorAll(".complex-foo__navigation-item");
@@ -67,6 +68,7 @@ const options = {
   rootMargin: "0px",
   threshold: 1.0,
 };
+
 const observer = new IntersectionObserver(onPage, options);
 
 pages.forEach((page) => {
@@ -153,7 +155,9 @@ prompt.addEventListener("click", () => {
   } else prompt.style.opacity = "0";
 });
 
-// scrollintoview js.
+iframe.addEventListener("mouseover", (e) => {
+  e.toElement.click();
+});
 
 if (sessionStorage.getItem("use_loader") == undefined) {
   sessionStorage.setItem("use_loader", true);
@@ -188,7 +192,6 @@ display_options_item_array.forEach((item) => {
 navigationBox.forEach((box) => {
   box.addEventListener("click", () => {
     let index = Array.from(navigationBox).indexOf(box);
-    console.log(index);
     pages[index + index].scrollIntoView();
 
     currentPage = index + index;
