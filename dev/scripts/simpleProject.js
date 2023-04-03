@@ -7,6 +7,7 @@ let projects = Array.from(document.getElementsByClassName("projects__project"));
 let description_close_button =
   document.getElementsByClassName("description__close")[0];
 const home_button = document.getElementsByClassName("foo__home")[0];
+const foo__about = document.getElementsByClassName("foo__about")[0];
 const add_project = document.getElementById("fifth");
 
 const description_logo_container =
@@ -33,6 +34,11 @@ description_close_button.addEventListener("click", () => {
 home_button.addEventListener("click", (e) => {
   e.preventDefault();
   invokeTransitioner("index.html");
+});
+
+foo__about.addEventListener("click", (e) => {
+  e.preventDefault();
+  invokeTransitioner("about.html");
 });
 
 add_project.addEventListener("click", () => {
