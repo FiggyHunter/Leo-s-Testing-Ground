@@ -37,12 +37,7 @@ let project_covers = document.getElementsByClassName("project-cover__darken");
 let transitioning = false;
 let currentPage = 0;
 
-const options = {
-  rootMargin: "0px",
-  threshold: 1.0,
-};
-
-const onPage = (entries, observer) => {
+const onPage = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       for (let j = 0; j < navigationBox.length; j++) {
@@ -68,6 +63,10 @@ const onPage = (entries, observer) => {
   });
 };
 
+const options = {
+  rootMargin: "0px",
+  threshold: 1.0,
+};
 const observer = new IntersectionObserver(onPage, options);
 
 pages.forEach((page) => {
@@ -97,10 +96,7 @@ for (let i = 1; i <= 4; i++) {
 }
 
 window.addEventListener("wheel", (e) => {
-  console.log(currentPage);
-  if (e.ctrlKey) return;
-
-  if (transitioning) return;
+  if (e.ctrlKey || transitioning) return;
 
   transitioning = true;
 
@@ -124,11 +120,6 @@ window.addEventListener("wheel", (e) => {
     transitioning = false;
   }, 200);
 });
-
-// window.addEventListener("touchstart", (e) => {
-//   throttle(callback, 1000, e);
-//   throttlePhone(callback, 1000, e);
-// });
 
 window.addEventListener("load", () => {
   hideLoaderWithDelay(loaderContainer, 3);
@@ -194,53 +185,6 @@ display_options_item_array.forEach((item) => {
     }
   });
 });
-
-let time = Date.now();
-
-function throttle(fn, wait, event = undefined) {
-  // we dismiss every wheel event with deltaY less than 4
-  if (Math.abs(event.deltaY) < 4) return;
-  setTimeout(() => {
-    if (time + wait - Date.now() < 0) {
-      fn();
-      time = Date.now();
-    } else return;
-  }, 1500);
-}
-
-function throttlePhone(fn, wait, event = undefined) {
-  // we dismiss every wheel event with deltaY less than 4
-  if (Math.abs(event.deltaY) < 4) return;
-  setTimeout(() => {
-    if (time + wait - Date.now() < 0) {
-      fn();
-      time = Date.now();
-    } else return;
-  }, 1500);
-}
-
-// function callback() {
-//   for (let index = 0; index < pages.length; index++) {
-//     onVisible(pages[index], () => {
-//       // console.log(pages[index]);
-//       for (let j = 0; j < navigationBox.length; j++) {
-//         navigationBox[j].classList.remove("--active-link");
-//       }
-//       navigationBox[index - 1].classList.add("--active-link");
-//     });
-//   }
-// }
-
-// function onVisible(element, callback) {
-//   new IntersectionObserver((entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.intersectionRatio === 1) {
-//         callback(element);
-//       }
-//     });
-//   }).observe(element);
-// }
-
 navigationBox.forEach((box) => {
   box.addEventListener("click", () => {
     let index = Array.from(navigationBox).indexOf(box);
