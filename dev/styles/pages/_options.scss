@@ -155,7 +155,7 @@ html {
     }
 
     .options__headline--smaller {
-        color: red;
+        color: map-get($color-map,"red");
         margin-bottom: 1rem;
     }
 

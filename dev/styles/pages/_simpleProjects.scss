@@ -1,5 +1,6 @@
 @use "../abstracts/" as *;
 @use "../components/tooltip" as *;
+@use "../components/iframe" as *;
 :root {
     --borderWidth: 3px;
 }
@@ -25,6 +26,11 @@ body {
     &:hover{
         cursor: pointer;
     }
+}
+
+.projects-foo-about {
+    position: sticky;
+
 }
 
 .foo__about img {
@@ -97,6 +103,7 @@ body {
         color: white;
         font-family: "Montserrat ExtraBold Italic";
         width: 85%;
+        max-width: 80%;
         margin: 0 auto;
         transition: background-color .4s;
         h5 {
@@ -107,17 +114,13 @@ body {
             background-color: map-get($color-map, "red" );
             cursor: pointer;
         }
-    
         @media (min-width: 600px) {
-            justify-content: left;
-            align-items: end;
-            h5 {
-                margin: .5rem .7rem;
-            }
+            max-width: 60%;
         }
 
         @media (min-width: 1300px) {
             border-radius: 1vmax;
+            max-width: 85%;
             align-items: center;
             justify-content: center;
         }
