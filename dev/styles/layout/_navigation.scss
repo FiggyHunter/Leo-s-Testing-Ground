@@ -91,11 +91,11 @@ nav {
                 animation-fill-mode: backwards;
 
                 &:hover {
-                    animation: pause;
+                    animation-duration: 60s;
                 }
 
                 &:hover + .setting-large   {
-                    animation: pause;
+                    animation-duration: 120s;
                 }
             }
         }
