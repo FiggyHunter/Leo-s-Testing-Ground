@@ -22,8 +22,15 @@ body {
 
 .right__prompt {
     transition: opacity .7s;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
+.foo__about img {
+    margin-right: 5px;
+    filter: invert(98%) sepia(100%) saturate(2%) hue-rotate(13deg) brightness(102%) contrast(101%)
+}
 
 .simple-container {
 
@@ -173,9 +180,12 @@ body {
 
 
 .projects-foo {
+    padding-top: 0;
     background-color: map-get($color-map, "red");
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
     font-family: "Montserrat Bold Italic";
     text-transform: uppercase;
     order: 1;
