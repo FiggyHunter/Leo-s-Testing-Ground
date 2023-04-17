@@ -102,8 +102,13 @@ nav {
 
         &__prompt {
             position: absolute;
-            right: clamp(.725rem, 3vw + .2rem, 6.25rem);
-            top: clamp(4.625rem, 6vw + .5rem, 6.25rem);
+            right: clamp(.725rem, 3vw + .5rem, 6.25rem);
+            top: clamp(4.625rem, 8vw + .5rem, 5.75rem);
+
+            @media (max-width: 600px) {
+                right: clamp(.725rem, 1vw + .5rem, 6.25rem);
+                top: clamp(3rem, 2vw + .5rem, 5.25rem);
+            }
         }
 
         &__icon {

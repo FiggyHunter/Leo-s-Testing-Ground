@@ -11,11 +11,9 @@ export function renderProjectForComplex(pageWhereProjectRenders) {
   }
 
   const projectToBeRendered = projects_array[pageWhereProjectRenders - 1];
-  console.log(projectToBeRendered);
   let currentPageProject = Array.from(
     document.querySelectorAll(".project-details")
   )[pageWhereProjectRenders - 1];
-  console.log(currentPageProject);
   const projectTitle = currentPageProject.querySelector(".description__title");
   const projectImage = currentPageProject.querySelector(
     ".image-container__image"

@@ -1,4 +1,4 @@
-export default function hideLoaderWithDelay(loaderContainer, seconds) {
+export function hideLoaderWithDelay(loaderContainer, seconds) {
   setTimeout(() => {
     getComputedStyle(loaderContainer).opacity;
     loaderContainer.style.opacity = 0;

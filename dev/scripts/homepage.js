@@ -1,4 +1,4 @@
-import hideLoaderWithDelay from "./helpers/hideLoaderWithDelay";
+import { hideLoaderWithDelay } from "./helpers/hideLoaderWithDelay";
 import { invokeTransitioner } from "./helpers/invokeTransitioner";
 import { fadeOut } from "./helpers/invokeFadeOut";
 import { ShowOrHidePrompt } from "./helpers/showOrHidePrompt";
@@ -14,6 +14,11 @@ const open_about_button = document.getElementsByClassName("right__link")[0];
 const open_projects_button = document.getElementsByClassName("button__hero")[0];
 const prompt = document.getElementsByClassName("right__prompt")[0];
 
+const documentHeight = () => {
+  const doc = document.documentElement;
+  doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+};
+
 (function () {
   window.onpageshow = function (event) {
     if (event.persisted) {
@@ -24,6 +29,10 @@ const prompt = document.getElementsByClassName("right__prompt")[0];
 
 window.addEventListener("load", () => {
   hideLoaderWithDelay(loaderContainer, 3);
+});
+
+window.addEventListener("resize", () => {
+  documentHeight();
 });
 
 ShowOrHidePrompt(prompt);
