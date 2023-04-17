@@ -11,11 +11,11 @@
   }
   
   .tooltip .tooltiptext {
-
     font-size: 1rem;
+
     font-family: $monty-bold;
     max-width: 200px;
-    width: 150%;
+    width: fit-content;
     background-color: black;
     color: #fff;
     text-align: center;

@@ -1,6 +1,6 @@
 .iframe {
   @media (max-width: 600px) {
-    display: none;
+    display: none !important;
   }
 
   &-global {

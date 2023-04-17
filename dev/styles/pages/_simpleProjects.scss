@@ -147,14 +147,16 @@ body {
             }
         }
         .project__overlay {
-            display: flex;
-            justify-content: center;
+            position: relative;
+            display: grid;
+            place-items: center;
+            font-size: clamp(1rem, 2vw + 0.25rem, 4rem);
             background-color: map-get($color-map, "blue" );
-            width: 96%;
+            width: 95.5%;
             height: 90%;
             border-radius: 3.5vmax;
             @media (min-width: 700px) {
-                width: 97.5%;
+                width: 98.5%;
             }
             @media (min-width: 1300px) {
                 border-radius: 1vmax;
@@ -227,7 +229,7 @@ body {
     z-index: 2;
     background-color: map-get($color-map, "blue");
     display: none;
-    grid-template-rows: 1fr 5fr 1fr 2fr 1.5fr;
+    grid-template-rows: 1fr 5fr 1fr 2fr 2.5fr;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "title"
@@ -312,7 +314,7 @@ body {
         grid-area: description;
         p {
             color: white;
-            width: 80%;
+            width: fit-content;
             margin: 0 auto;
             text-align: center;
             font-size: clamp(1rem, 1vw + .3rem, 2.125rem);
