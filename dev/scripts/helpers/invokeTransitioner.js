@@ -3,8 +3,8 @@ export function invokeTransitioner(location) {
   transitioner.id = "transitioner";
   document.body.insertBefore(transitioner, document.body.firstChild);
   window.getComputedStyle(transitioner).opacity;
-  setTimeout((transitioner.style.opacity = 1), 200);
+  setTimeout((transitioner.style.opacity = 1), 20);
   setTimeout(() => {
     window.location = location;
-  }, 600);
+  }, 500);
 }
