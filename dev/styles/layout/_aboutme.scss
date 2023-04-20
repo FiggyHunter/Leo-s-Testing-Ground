@@ -1,0 +1,104 @@
+@use "../abstracts/font" as *;
+
+.first {
+  display: flex;
+  flex-direction: column;
+  &__headline {
+    width: 100%;
+    color: white;
+    font-size: clamp(.8rem, 2vw + 0.25rem, 3rem);
+    font-family: $monty-medium;
+    padding: .5rem 0rem;
+    display: flex;
+    align-items: center;
+    img {
+      width: clamp(2rem, 3vw + .25rem, 7.45rem) ;
+    }
+    h1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      text-align: center;
+    }
+    
+  }
+  @media (max-width: 600px) {
+    .paragraph + .paragraph {
+      display:  none;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    width: clamp(2rem, 2.5vw + 0.25rem, 5rem)
+  }
+  justify-self: end;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.paragraph {
+  color: white;
+  font-family: $monty-italic;
+  width: 90%;
+  padding-bottom: 7px;
+  align-self: center;
+  font-size: clamp(0.35rem, 2.1vw + .25rem, 1.3rem);
+  margin: auto auto;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  &__headline {
+    width: 100%;
+    color: white;
+    font-size: clamp(.8rem, 2vw + 0.25rem, 3rem);
+    font-family: $monty-medium;
+    padding: .5rem 0rem;
+    display: flex;
+    img {
+      width: clamp(1.2rem, 1.3vw + .25rem, 4.45rem) ;
+    }
+    h1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.third {
+  display: flex;
+  flex-direction: column;
+
+  &__headline {
+    width: 100%;
+    color: white;
+    font-size: clamp(.8rem, 2vw + 0.25rem, 3rem);
+    font-family: $monty-medium;
+    padding: .5rem 0rem;
+    text-align: center;
+  }
+}
+
+.techstack {
+  display: grid;
+  margin: auto 0;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+  img {
+    width: clamp(2.75rem, 4vw + 0.25rem, 4rem);
+  }
+}
