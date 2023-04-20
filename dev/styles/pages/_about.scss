@@ -1,5 +1,7 @@
 @use "../abstracts/" as *;
 @use "../base/reset" as *;
+@use "../layout/aboutme" as *;
+@use "../components/tooltip" as *;
 
 * {
     padding: 0;
@@ -7,10 +9,12 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow: hidden;
+}
+
 .red-filter {
     filter: invert(81%) sepia(90%) saturate(6829%) hue-rotate(356deg) brightness(99%) contrast(117%);
-
-
 }
 
 .--bold {
@@ -34,11 +38,14 @@
 
 .about__home-nav {
     position: absolute;
-    display: flex;
-    top: 1.1vw;
-    left: .2rem;
+    display: grid;
+    top: clamp(.6rem, .5vw + 0.25rem, 2rem);
+    left: clamp(.5rem, .5vw + 0.25rem, 4rem);
     z-index: 100000;
-    align-items: center;
+    place-items: center;
+    img {
+        width: 90%;
+    }
 }
 
 .about-person-ctr {
@@ -93,25 +100,18 @@
     }
 }
 
-
-
 .about-site-ctr {
-
     visibility: hidden;
     display: grid;
     grid-template-rows: 0.5fr 8fr;
     opacity: 0;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     width: 100vw;
     position: absolute;
     z-index: 100;
     background-color: map-get($color-map, "blue");
-    transition: opacity 2s;
-
-    img {
-        filter: invert(84%) sepia(99%) saturate(5851%) hue-rotate(339deg) brightness(76%) contrast(106%);
-    }
-
+    transition: opacity 1s;
     &__nav {
         width: 100%;
         justify-content: space-between;
@@ -157,13 +157,53 @@
 
     .about-site-ctr__text {
         display: grid;
-        grid-auto-rows: auto;
-        place-items: center;
-        align-items: space-around;
-        width: 87%;
+        grid-template-rows: repeat(3,1fr);
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "first"
+        "second"
+        "third";
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+            "first first"
+            "second third"
+            "second third";
+            gap: 2rem;
+        }
+
+        @media (min-width: 1366px) {
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+            "first first second second second"
+            "first first third third third";
+            gap: 3rem;
+        }
+
+        width: 90%;
+        height: 97%;
         margin: 0 auto;
-        @media (min-width: 800px) {
-            width: 70%;
+
+        .box {
+            height: 100%;
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 2rem;
+        }
+
+        .first {
+            grid-area: first;
+        }
+
+        .second {
+            grid-area: second;
+        }
+    
+        .third {
+            grid-area: third;
         }
     }
 }
@@ -241,12 +281,12 @@
     animation-fill-mode: forwards;
     display: flex;
     align-items: flex-end;
-    position: relative;
+    flex-direction: row !important;
 
     .about-person {
         z-index: 5;
         position: absolute;
-        left: clamp(-18px, -10px - 3vw, -20px);
+        left: clamp(-35px, -10px - 3vw, -50px);
         margin-bottom: 1rem;
         font-family: $monty-bold;
         font-size: clamp(1.875rem, 1.5vw + 1.2rem, 4.125rem);
