@@ -73,6 +73,7 @@ aboutSite.addEventListener("click", () => {
     document.documentElement.style.setProperty("--revealBorder", "#110635");
   });
 
+  document.body.style.overflow = "initial";
   hideText(2000);
   setTimeout(() => {
     aboutSiteContainer.style.visibility = "visible";
@@ -97,7 +98,7 @@ closeAboutPersonContainer.addEventListener("click", () => {
 
 closeAboutSiteContainer.addEventListener("click", () => {
   aboutSiteContainer.style.opacity = 0;
-
+  document.body.style.overflow = "hidden";
   setTimeout(() => {
     document.documentElement.style.setProperty("--revealBorder", "red");
     home__image.classList.remove("red-filter");
