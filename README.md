@@ -1,11 +1,11 @@
-<h1> Leo's Testing Ground - Portfolio Website </h1>
-<img style="margin-bottom: 1rem;"  src="./dev/images/HomePicture.png">
+<h1> Leo's Testing Ground - Portfolio Website - </h1>
+<img style="margin-bottom: 1rem;"  src="https://www.leotg.com/HomePicture.png">
 
 ---
 
 <h2>Project Description</h2>
 
-Leo's Testing ground is a personal portfolio project, which, in a unique way presents small projects I did while I was learning HTML/CSS/JS. It is the first large-scale project I have ever built.
+Leo's Testing ground is a personal portfolio project, which, in a unique way presents small projects I did while I was learning HTML/CSS/JS. It is the first large-scale project I have ever built. **The project has no additional frameworks or libraries.**
 
 ---
 
